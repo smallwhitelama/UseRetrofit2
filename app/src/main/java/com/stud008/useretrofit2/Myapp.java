@@ -19,6 +19,8 @@ public class Myapp extends Application {
     Call<ResponseBody> delete;
     Call<ResponseBody> add;
     Call<ResponseBody> addByFormPost;
+    Call<ResponseBody> updateByGet;
     //這邊可以寫get result &putresult 會比較漂亮
     Repo StudentInformation = new Repo();
+
 }

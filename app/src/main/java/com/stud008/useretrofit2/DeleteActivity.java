@@ -68,7 +68,7 @@ public class DeleteActivity extends AppCompatActivity {
 
 
         Button buttonCancel = (Button) findViewById(R.id.buttonCancel);
-        Button buttonDelete = (Button) findViewById(R.id.buttonAdd);
+        Button buttonDelete = (Button) findViewById(R.id.buttonupdate);
 
 
 

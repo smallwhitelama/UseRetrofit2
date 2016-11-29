@@ -41,9 +41,9 @@ public class MainActivity extends AppCompatActivity {
 //                Toast.makeText(MainActivity.this,"你點擊的是第"+position,Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(MainActivity.this,DeleteActivity.class);//拿來丟東西,可以連結頁面
 //                intent.putExtra("cName",adapter.getItem(position));  //前面是key後面是value
-                intent.putExtra("position",position);
+                intent.putExtra("position",position); //position代表你點擊的是哪一個
 //                startActivity(intent);
-                startActivityForResult(intent,0);//因為有兩個按鈕
+                startActivityForResult(intent,0);//因為有兩個按鈕,因為會改方式,所以不會這樣用到
 
             }
         };
@@ -90,6 +90,35 @@ public class MainActivity extends AppCompatActivity {
                 t.printStackTrace(); //列出錯誤
             }
         }); //enqueue 序列,排列,會在背景執行,程式不會被網路拖住
+
+        Repo repo = new Repo();
+        repo.cID = 31;
+        repo.cName="Alpaca";
+        repo.cSex="M";
+        repo.cBirthday="1974-04-03";
+        repo.cEmail="123456";
+        repo.cPhone="0933596597";
+        repo.cAddr="Earth";
+
+        myapp.updateByGet = myapp.service.updateByGET(repo.cID,repo.cName,repo.cSex,repo.cBirthday,repo.cEmail,repo.cAddr,repo.cPhone);
+        //把城市實體化
+        //下面執行
+        myapp.updateByGet.enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                System.out.println("Updata by get OK" + response.toString());
+            updateListView();
+            }
+
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+
+            }
+        });
+
+
+
+
 
     }
 
@@ -142,7 +171,7 @@ public class MainActivity extends AppCompatActivity {
 //            position = (int) intent.getExtras().getSerializable("position")
             Myapp myApp = (Myapp) getApplicationContext();
             Repo repo = new Repo();
-            repo.cName = (String) data.getExtras().getSerializable("cName"); //解開資料,讀取值
+            repo.cName = (String) data.getExtras().getSerializable("cName"); //解開Intent資料,讀取值
             repo.cAddr = (String) data.getExtras().getSerializable("cAddr");
             repo.cBirthday = (String) data.getExtras().getSerializable("cBirthday");
             repo.cEmail = (String) data.getExtras().getSerializable("cEmail");
@@ -161,8 +190,8 @@ public class MainActivity extends AppCompatActivity {
 //                }
 //            });
             myApp.addByFormPost = myApp.service.addByFormPost(
-                    repo.cName, repo.cSex, repo.cBirthday, repo.cEmail, repo.cPhone, repo.cAddr);
-//            myApp.StudentInformation.cName,
+                    repo.cName, repo.cSex, repo.cBirthday, repo.cEmail, repo.cPhone, repo.cAddr);//Intent的方法
+//            myApp.StudentInformation.cName, //利用應用程式範圍變數的方式
 //            myApp.StudentInformation.cSex,
 //            myApp.StudentInformation.cBirthday,
 //            myApp.StudentInformation.cEmail,
@@ -207,6 +236,12 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(MainActivity.this,AddActivity.class);//拿來丟東西,可以連結頁面
 
         startActivityForResult(intent,1);//因為有兩個按鈕
+    }
+
+    public void update(View view){
+        Intent intent = new Intent(MainActivity.this,UpdateActivity.class);//拿來丟東西,可以連結頁面
+
+        startActivityForResult(intent,2);//因為有兩個按鈕
     }
 
     public void updateListView(){

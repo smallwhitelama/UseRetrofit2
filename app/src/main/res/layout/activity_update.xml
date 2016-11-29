@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_add"
+    android:id="@+id/activity_update"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.stud008.useretrofit2.AddActivity">
+    tools:context="com.stud008.useretrofit2.UpdateActivity">
     <TableRow
         android:layout_width="match_parent"
         android:layout_height="match_parent" >
@@ -48,7 +48,7 @@
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
             android:ems="10"
-            android:id="@+id/addName"
+            android:id="@+id/updateName"
             android:hint="Name" />
 
     </TableRow>
@@ -72,7 +72,7 @@
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
             android:ems="10"
-            android:id="@+id/addSex"
+            android:id="@+id/updateSex"
             android:hint="Sex" />
 
     </TableRow>
@@ -96,7 +96,7 @@
             android:layout_height="wrap_content"
             android:inputType="number"
             android:ems="10"
-            android:id="@+id/addBirthday"
+            android:id="@+id/updateBirthday"
             android:hint="輸入生日" />
 
     </TableRow>
@@ -120,7 +120,7 @@
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
             android:ems="10"
-            android:id="@+id/addEmail"
+            android:id="@+id/updateEmail"
             android:hint="Email" />
 
     </TableRow>
@@ -144,7 +144,7 @@
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
             android:ems="10"
-            android:id="@+id/addPhone"
+            android:id="@+id/updatePhone"
             android:hint="phone" />
 
     </TableRow>
@@ -167,7 +167,7 @@
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
             android:ems="10"
-            android:id="@+id/addAddr"
+            android:id="@+id/updateAddr"
             android:hint="addr" />
 
     </TableRow>
@@ -186,7 +186,7 @@
             android:layout_alignLeft="@+id/addr"
             android:layout_alignStart="@+id/addr"
             android:clickable="true"
-            android:onClick="add" />
+            android:onClick="update" />
 
         <Button
             android:text="取消"
@@ -201,5 +201,4 @@
             android:onClick="cancel"
             />
     </TableRow>
-
 </TableLayout>
