@@ -67,24 +67,13 @@
             android:textSize="20sp"
             android:id="@+id/sex" />
 
-        <RadioGroup
+        <EditText
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" >
-
-            <RadioButton
-                android:text="男生"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/radioButton4"
-                android:layout_weight="1" />
-
-            <RadioButton
-                android:text="女生"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/radioButton3"
-                android:layout_weight="1" />
-        </RadioGroup>
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:id="@+id/addSex"
+            android:hint="Sex" />
 
     </TableRow>
 

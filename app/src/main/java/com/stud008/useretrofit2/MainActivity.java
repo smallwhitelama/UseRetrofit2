@@ -137,14 +137,17 @@ public class MainActivity extends AppCompatActivity {
         }
         }
         if(requestCode == 1 && resultCode==Activity.RESULT_OK) {
+//            Intent intent = getIntent(); 因為上面已經回傳成data了,所以這邊再去get是得不到的
+//            int position;
+//            position = (int) intent.getExtras().getSerializable("position")
             Myapp myApp = (Myapp) getApplicationContext();
             Repo repo = new Repo();
-            repo.cName = "two";
-            repo.cAddr = "Earth";
-            repo.cBirthday = "1987/08/07";
-            repo.cEmail = "asveabd@gmail.com";
-            repo.cPhone = "09122165106";
-            repo.cSex = "male";
+            repo.cName = (String) data.getExtras().getSerializable("cName"); //解開資料,讀取值
+            repo.cAddr = (String) data.getExtras().getSerializable("cAddr");
+            repo.cBirthday = (String) data.getExtras().getSerializable("cBirthday");
+            repo.cEmail = (String) data.getExtras().getSerializable("cEmail");
+            repo.cPhone = (String) data.getExtras().getSerializable("cPhone");
+            repo.cSex = (String) data.getExtras().getSerializable("cSex");
 //            myApp.add=myApp.service.add(repo);
 //            myApp.add.enqueue(new Callback<ResponseBody>() { //Json Type
 //                @Override
@@ -157,8 +160,22 @@ public class MainActivity extends AppCompatActivity {
 //                    System.out.println("Add fail......");
 //                }
 //            });
-            myApp.addByFormPost = myApp.service.addByFormPost(repo.cName, repo.cSex, repo.cBirthday, repo.cEmail, repo.cPhone, repo.cAddr);
+            myApp.addByFormPost = myApp.service.addByFormPost(
+                    repo.cName, repo.cSex, repo.cBirthday, repo.cEmail, repo.cPhone, repo.cAddr);
+//            myApp.StudentInformation.cName,
+//            myApp.StudentInformation.cSex,
+//            myApp.StudentInformation.cBirthday,
+//            myApp.StudentInformation.cEmail,
+//            myApp.StudentInformation.cPhone,
+//            myApp.StudentInformation.cAddr);
+
+
             System.out.println("HERE  "+myApp.addByFormPost);
+
+
+
+
+
             myApp.addByFormPost.enqueue(new Callback<ResponseBody>() {
                 @Override
                 public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
