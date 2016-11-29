@@ -29,8 +29,11 @@ public class MainActivity extends AppCompatActivity {
 
 
 //        String[] data = {"test1","test2","test3"};
-        int layoutID = android.R.layout.simple_list_item_1;//adroid內建簡單的layout!!!!!!!!!!!
-        adapter  = new ArrayAdapter<String>(this,layoutID);
+//        int layoutID = android.R.layout.simple_list_item_1;//adroid內建簡單的layout!!!!!!!!!!!
+        int layoutID =R.layout.singleitem;
+//        adapter  = new ArrayAdapter<String>(this,layoutID);//因為用自己設計的layout,所以不能用預設的class了,要自己搞新的
+        adapter =new ItemAapter(this,layoutID);
+        adapter.set
         ListView item_list = (ListView) findViewById(R.id.item_list);
         item_list.setAdapter(adapter);
 
